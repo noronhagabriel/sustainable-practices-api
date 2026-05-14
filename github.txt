@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 https://github.com/noronhagabriel/sustainable-practices-api
+=======
+
+>>>>>>> 4b35b6e66edf4c721b2ed8279658b9d0c4fbd790
