@@ -1,0 +1,13 @@
+URL do repositório GitHub:
+https://github.com/SEU_USUARIO/api-praticas-sustentaveis
+
+Instruções para publicar:
+1. Crie um repositório público no GitHub com o nome "api-praticas-sustentaveis"
+2. Na pasta do projeto, execute:
+   git init
+   git add .
+   git commit -m "feat: API de práticas sustentáveis - ODS 12 e ODS 13"
+   git branch -M main
+   git remote add origin https://github.com/SEU_USUARIO/api-praticas-sustentaveis.git
+   git push -u origin main
+3. Substitua a URL acima pela URL real do seu repositório após publicar.

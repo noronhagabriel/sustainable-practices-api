@@ -1,0 +1,16 @@
+Projeto corrigido para execução com Docker.
+
+Correções feitas:
+1. package.json
+   - start:prod alterado de "node dist/main" para "node dist/src/main.js"
+   - Jest rootDir alterado de "src" para ".", para reconhecer testes na pasta test
+
+Para testar:
+
+docker compose down
+docker compose up --build
+
+Rotas da API:
+POST http://localhost:3000/pratica
+GET  http://localhost:3000/historico
+GET  http://localhost:3000/estatisticas
