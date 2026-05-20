@@ -1,13 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integração </title>
-    <script src="script.js"></script>
+    <title>Práticas Sustentáveis</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    
+
+    <header>
+        <h1>🌱 Práticas Sustentáveis</h1>
+        <p>Registre e acompanhe suas ações pelo meio ambiente</p>
+    </header>
+
+    <main>
+
+        <!-- Estatísticas -->
+        <section id="section-estatisticas">
+            <h2>📊 Estatísticas Gerais</h2>
+            <div id="estatisticas-container">
+                <p class="loading">Carregando estatísticas...</p>
+            </div>
+        </section>
+
+        <!-- Formulário de cadastro -->
+        <section id="section-cadastro">
+            <h2>➕ Registrar Nova Prática</h2>
+            <div class="form-card">
+                <div class="form-group">
+                    <label for="nomeUsuario">Nome do Usuário *</label>
+                    <input type="text" id="nomeUsuario" placeholder="Ex: Maria Silva" />
+                </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo de Prática *</label>
+                    <input type="text" id="tipo" placeholder="Ex: Reciclagem, Economia de água..." />
+                </div>
+                <div class="form-group">
+                    <label for="data">Data *</label>
+                    <input type="date" id="data" />
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição (opcional)</label>
+                    <textarea id="descricao" rows="3" placeholder="Descreva a prática realizada..."></textarea>
+                </div>
+                <div id="msg-cadastro" class="mensagem"></div>
+                <button id="btn-cadastrar" onclick="cadastrarPratica()">Registrar Prática</button>
+            </div>
+        </section>
+
+        <!-- Filtros e histórico -->
+        <section id="section-historico">
+            <h2>📋 Histórico de Práticas</h2>
+            <div class="filtros-card">
+                <div class="filtros-grid">
+                    <div class="form-group">
+                        <label for="filtro-usuario">Filtrar por usuário</label>
+                        <input type="text" id="filtro-usuario" placeholder="Nome do usuário..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="filtro-tipo">Filtrar por tipo</label>
+                        <input type="text" id="filtro-tipo" placeholder="Tipo de prática..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="filtro-data-inicial">Data inicial</label>
+                        <input type="date" id="filtro-data-inicial" />
+                    </div>
+                    <div class="form-group">
+                        <label for="filtro-data-final">Data final</label>
+                        <input type="date" id="filtro-data-final" />
+                    </div>
+                </div>
+                <div class="filtros-botoes">
+                    <button onclick="buscarHistorico()">🔍 Buscar</button>
+                    <button class="btn-secundario" onclick="limparFiltros()">✖ Limpar Filtros</button>
+                </div>
+            </div>
+            <div id="historico-container">
+                <p class="loading">Carregando histórico...</p>
+            </div>
+        </section>
+
+    </main>
+
 </body>
 </html>

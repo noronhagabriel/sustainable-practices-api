@@ -1,31 +1,193 @@
-:root{
-    --background-color: #f0f0f0;
-    --cardColor: #ffffff;
-    --shadowColor: rgba(0, 0, 0, 0.2);
+:root {
+    --bg: #f0f4f0;
+    --surface: #ffffff;
+    --primary: #2e7d32;
+    --primary-hover: #1b5e20;
+    --secondary: #6c757d;
+    --secondary-hover: #5a6268;
+    --text: #212121;
+    --text-muted: #6c757d;
+    --border: #dee2e6;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --sucesso: #d4edda;
+    --sucesso-texto: #155724;
+    --erro: #f8d7da;
+    --erro-texto: #721c24;
+    --radius: 10px;
 }
-
-html, body{
-    margin: 0;
-    height: 100%;
  
+*, *::before, *::after { box-sizing: border-box; }
+ 
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
 }
-body{
-    background-color: var(--background-color);
+ 
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+header {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 24px 32px;
+    text-align: center;
 }
-#content{
-    display: flex;;
+header h1 { margin: 0 0 6px; font-size: 1.8rem; }
+header p  { margin: 0; opacity: 0.85; font-size: 1rem; }
+ 
+/* ── Main layout ─────────────────────────────────────────────────────────────── */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
-article{
-    background-color: var(--cardColor);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
-    max-width: 20%;
-    box-shadow: 0 0 10px var(--shadowColor);
+ 
+section h2 {
+    margin: 0 0 16px;
+    font-size: 1.2rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 6px;
 }
-form{
-    margin: 20px;
+ 
+/* ── Cards de estatísticas ───────────────────────────────────────────────────── */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
 }
-div{
-    margin: 100px 20px;
+.stat-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px var(--shadow);
+    padding: 20px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.stat-valor {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    word-break: break-word;
+}
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+ 
+.tipo-lista { background: var(--surface); border-radius: var(--radius); box-shadow: 0 2px 8px var(--shadow); padding: 16px 20px; }
+.tipo-lista h3 { margin: 0 0 12px; font-size: 0.95rem; color: var(--text-muted); }
+.tipo-lista ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.tipo-lista li { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--border); }
+.tipo-lista li:last-child { border-bottom: none; }
+.tipo-nome { font-weight: 500; }
+.tipo-total { background: var(--primary); color: #fff; border-radius: 20px; padding: 2px 10px; font-size: 0.85rem; }
+ 
+/* ── Formulário de cadastro ──────────────────────────────────────────────────── */
+.form-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px var(--shadow);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.form-group input,
+.form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--text);
+    transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+.form-group textarea { resize: vertical; }
+ 
+/* ── Botões ──────────────────────────────────────────────────────────────────── */
+button {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+button:hover:not(:disabled) { background-color: var(--primary-hover); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+button.btn-secundario { background-color: var(--secondary); }
+button.btn-secundario:hover { background-color: var(--secondary-hover); }
+ 
+/* ── Mensagens de feedback ───────────────────────────────────────────────────── */
+.mensagem { border-radius: 6px; padding: 0; font-size: 0.9rem; transition: all 0.2s; }
+.mensagem.sucesso { background: var(--sucesso); color: var(--sucesso-texto); padding: 10px 14px; }
+.mensagem.erro    { background: var(--erro);    color: var(--erro-texto);    padding: 10px 14px; }
+ 
+/* ── Filtros ─────────────────────────────────────────────────────────────────── */
+.filtros-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px var(--shadow);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+.filtros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.filtros-botoes { display: flex; gap: 10px; flex-wrap: wrap; }
+ 
+/* ── Cards do histórico ──────────────────────────────────────────────────────── */
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+article {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px var(--shadow);
+    padding: 18px 20px;
+    flex: 1 1 220px;
+    max-width: 320px;
+    border-left: 4px solid var(--primary);
+}
+article h3 { margin: 0 0 10px; font-size: 1rem; color: var(--primary); }
+article p  { margin: 4px 0; font-size: 0.88rem; color: var(--text-muted); }
+.card-descricao { color: var(--text) !important; margin-top: 8px !important; font-style: italic; }
+ 
+/* ── Estados informativos ────────────────────────────────────────────────────── */
+.loading { color: var(--text-muted); font-style: italic; padding: 12px 0; }
+.vazio   { color: var(--text-muted); padding: 12px 0; }
+.erro    { color: var(--erro-texto); background: var(--erro); border-radius: 6px; padding: 10px 14px; }
+.total-resultado { font-size: 0.9rem; color: var(--text-muted); margin: 0 0 12px; }
+ 
+/* ── Responsivo ──────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    header { padding: 18px 16px; }
+    header h1 { font-size: 1.4rem; }
+    .form-card, .filtros-card { padding: 16px; }
+    article { max-width: 100%; }
 }
